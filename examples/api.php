@@ -10,7 +10,7 @@ $fields = explode(',', filter_input(INPUT_GET, 'fields'));
 
 $provider = (new ProviderPicker($providerName))->getProvider($ip);
 
-switch ($_GET['format']) {
+switch ($format) {
     case 'xml':
         header('Content-Type: application/xml');
         break;

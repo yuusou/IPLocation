@@ -32,7 +32,7 @@ abstract class Provider
 	 * A mapping of our standard field names to the specific API's names.
 	 * @var array
 	 */
-    private $fields;
+    private $fields = array();
 
     /**
 	 * Results from the API go here.

@@ -6,7 +6,11 @@ use \IPLocation\Tools\ProviderPicker;
 $providerName = filter_input(INPUT_GET, 'provider');
 $ip = filter_input(INPUT_GET, 'ip', FILTER_VALIDATE_IP);
 $format = filter_input(INPUT_GET, 'format');
-$fields = explode(',', filter_input(INPUT_GET, 'fields'));
+$fields = filter_input(INPUT_GET, 'fields');
+
+if (!empty($fields)) {
+    $fields = explode(',', $fields);
+}
 
 $provider = (new ProviderPicker($providerName))->getProvider($ip);
 

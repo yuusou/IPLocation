@@ -162,7 +162,7 @@ abstract class Provider
                 return json_encode($resultFields);
                 break;
             default:
-                return $resultFields;
+                return print_r($resultFields, true);
                 break;
         }
         return $this->results[$inField];

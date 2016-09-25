@@ -3,11 +3,11 @@ require_once(__DIR__ . '/../vendor/autoload.php');
 
 use \IPLocation\Tools\ProviderPicker;
 
-$provider = (new ProviderPicker($_GET['provider']))->getProvider($_GET['ip']);
+$providerName = filter_input(INPUT_GET, 'provider');
+$ip = filter_input(INPUT_GET, 'ip', FILTER_VALIDATE_IP);
+$fields = explode(',', filter_input(INPUT_GET, 'fields'));
 
-if (isset($_GET['fields'])) {
-    $fields = explode(',', $_GET['fields']);
-}
+$provider = (new ProviderPicker($providerName))->getProvider($ip);
 
 switch ($_GET['format']) {
     case 'xml':
@@ -40,3 +40,4 @@ switch ($_GET['format']) {
 }
 
 ?>
+
